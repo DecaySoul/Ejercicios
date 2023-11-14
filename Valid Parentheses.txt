@@ -1,0 +1,36 @@
+public class Solution {
+    public bool IsValid(string s) {
+        Dictionary<char, char> mapping =
+              new Dictionary<char, char>(){
+                                  {'}', '{'},
+                                  {')', '('},
+                                {']', '['} };
+        Stack<char> myStack = new Stack<char>();
+        
+        foreach (char c in s)
+        {
+            if(!mapping.ContainsKey(c))
+            {
+                myStack.Push(c);
+            }
+            else
+            {
+                if(myStack.Count < 1)
+                {
+                    return false;
+                }
+                if(mapping[c] != myStack.Pop())
+                {
+                   return false;
+                }
+                
+            }
+                
+        }
+        
+        return myStack.Count == 0;        
+    }
+    
+    
+    
+}
