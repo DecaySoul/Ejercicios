@@ -1,6 +1,7 @@
 public class Solution {
     public bool IsValid(string s) {
-        Dictionary<char, char> mapping =
+        
+	Dictionary<char, char> mapping =
               new Dictionary<char, char>(){
                                   {'}', '{'},
                                   {')', '('},
